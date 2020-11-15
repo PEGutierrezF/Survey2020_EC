@@ -3,13 +3,14 @@
 library('ggplot2')
 library('patchwork')
 library(dplyr)
+library("RColorBrewer")
 
 
 category <- c('Assistant Professor','Associate or Full Professor',
             'Postdoc ', 'Consulting', 'State or provincial agency', 'Federal agency',
             'NGO','Others')
 
-responses <- c(25.6,18,14.6,7,6,6,6,15.8)
+responses <- c(26.8,18.2,14,8.6,6,6,6,15.8)
 
 perfil <- data.frame(category, responses)
 perfil
@@ -32,9 +33,74 @@ p1 <- ggplot(data=perfil, aes(x=reorder(category, responses), y=responses)) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) +
   
   scale_x_discrete(labels=c('State or\n provincial agency', 'Federal agency',
-                            'NGO','Consulting','Postdoc ','Others',
-                            'Associate or\n Full Professor','Assistant Professor'))
+                            'NGO','Consulting','Postdoc*','Others',
+                            'Associate or\n Full Professor*','Assistant Professor*'))
 p1
+
+
+# Optional ----------------------------------------------------------------
+
+
+category <- c('Academy', 'Consulting', 'State or provincial agency', 'Federal agency',
+              'NGO','Unemployed')
+
+responses <- c(73,8.6,6.1,6.1,6.1,1.2)
+
+perfil <- data.frame(category, responses)
+perfil
+
+perfil$category <- factor(perfil$category, levels = perfil$category)
+
+a1 <- ggplot(data=perfil, aes(x=reorder(category, responses), y=responses)) +
+  labs(x= "Category", y = "Responses (%)") +
+  geom_bar(stat="identity",fill="steelblue") + 
+  coord_flip() +
+  
+  theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 12, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
+  
+  # Panel
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black")) +
+  theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) +
+  
+  scale_x_discrete(labels=c('Unemployed','State or\n provincial\n agency', 'Federal\n agency',
+                            'NGO','Consulting','Academy'))
+a1
+
+
+# Academy -----------------------------------------------------------------
+
+category1 <- c('Assistant Professor','Associate or Full Professor',
+              'Postdoc ', 'Lecure', 'Research', 'Others')
+
+responses1 <- c(36.6,25,20,6.6,6.6,5)
+
+perfil1 <- data.frame(category1, responses1)
+perfil1
+
+perfil1$category1 <- factor(perfil1$category1, levels = perfil1$category1)
+
+a2 <- ggplot(data=perfil1, aes(x=reorder(category1, responses1), y=responses1)) +
+  labs(x= "", y = "Responses (%)") +
+  geom_bar(stat="identity",fill="steelblue") + 
+  coord_flip() +
+  
+  theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 12, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
+  
+  # Panel
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black")) +
+  theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) +
+  
+  scale_x_discrete(labels=c('Others', 'Researcher', 'Lecture','Postdoc',
+                            'Associate or\n Full Professor','Assistant\n Professor'))
+a2
 
 
 # Degree ------------------------------------------------------------------
@@ -62,9 +128,9 @@ p2 <- ggplot(data=degree, aes(x=reorder(degree, -number), y=number)) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5))
 p2  
  
-Fig1 <- p1 + p2
-Fig1 + plot_annotation(tag_levels = 'A')
-Fig1 + ggsave("Figure_1.jpeg") 
+Fig1a <- (a1 + a2) / (p2 +plot_spacer())
+Fig1a + plot_annotation(tag_levels = 'A')
+Fig1a + ggsave("Figure_1a.jpeg", width = 20, height = 20, units = "cm") 
 
 
 # Continually attending SFS meetings ---------------------------------------
@@ -137,28 +203,38 @@ Fig2 + ggsave("Figure_2.jpeg")
 
 # Interest ----------------------------------------------------------------
 
-option <- c(rep("option1" , 5) , rep("option2" , 5) , rep("option3" , 5) )
+option <- c(rep("Option 1" , 5) , rep("Option 2" , 5) , rep("Option 3" , 5) ,
+            rep("Option 4" , 5), rep("Option 5" , 5))
 
 category <- c('Community Ecology','Biogeochemistry','Conservation','Streams/Rivers','Hydrology',
               'Streams/Rivers', 'Conservation', 'Biogeochemistry', 'Management', 'Hydrology',
-              'Streams/Rivers', 'Invertebrates','Lakes', 'Management', 'Conservation')
+              'Streams/Rivers', 'Invertebrates','Lakes', 'Management', 'Conservation',
+              'Invertebrates','Streams/Rivers','Wetlands','Nutrients','Sediments',
+              'Fish', 'Climate Change', 'Food Webs', 'Nutrients', 'Streams/Rivers')
 numbers <- c(48,24,7,5,4,
-             32.29,12.5,8.33,8.33,8.33,
-             29.17,10.42,9.38,6.26,5.21
+             32.3,12.5,8.3,8.3,8.3,
+             30.1,10.8,9.7,6.7,5.4,
+             19.3,12.5,5.7,4.6,4.6,
+             10.3,7.7,7.7,7.7,6.4
              )
 
 interest <- data.frame(option,category, numbers)
 interest
 
-plotorder = c('Community Ecology','Biogeochemistry','Conservation','Streams/Rivers',
-              'Hydrology','Invertebrates','Lakes', 'Management')
+
+cbp1 <- c("#AA7744", "#774411", "#DDDD77","#AAAA44", 
+          "#777711", "#88CCAA", "#44AA77", "#117744", 
+          "#77CCCC", "#44AAAA","#117777",  "#77AADD", 
+          "#4477AA", "#114477")
+                                          #azul
+
 
 p <- ggplot(interest, 
        aes(x=reorder(option,numbers), y=numbers, fill=reorder(category,numbers))) + 
   geom_bar(stat="identity") +
   labs(x= "", y = "Percentage", fill= "Topic") +
-   scale_fill_brewer(palette="Blues")+
   coord_flip()+
+  scale_fill_manual(values = cbp1)+
    guides(fill = guide_legend(reverse=TRUE)) +
    theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y 
    theme(axis.title.x = element_text(size = 12, angle = 00)) + # axis x
@@ -169,5 +245,4 @@ p <- ggplot(interest,
    theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
          panel.background = element_blank(), axis.line = element_line(colour = "black")) +
    theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5))
-p + ggsave("Figure_3.jpeg") 
-
+p  

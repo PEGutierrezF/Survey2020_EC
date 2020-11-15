@@ -14,7 +14,7 @@ degree<- data.frame(year, degree, number)
 degree
 
 
-ggplot(data=degree, aes(x=reorder(degree, -number), y=number, fill=as.factor(year))) +
+c1 <- ggplot(data=degree, aes(x=reorder(degree, -number), y=number, fill=as.factor(year))) +
   geom_bar(stat="identity", position=position_dodge()) +
   labs(x= "Degree", y = "% of respondents", fill='Survey year') +
   
