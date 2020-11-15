@@ -230,7 +230,7 @@ cbp1 <- c("#AA7744", "#774411", "#DDDD77","#AAAA44",
 
 
 p <- ggplot(interest, 
-       aes(x=reorder(option,numbers), y=numbers, fill=reorder(category,numbers))) + 
+       aes(x=reorder(option,numbers), y=numbers, fill=reorder(category, numbers))) + 
   geom_bar(stat="identity") +
   labs(x= "", y = "Percentage", fill= "Topic") +
   coord_flip()+
@@ -246,3 +246,5 @@ p <- ggplot(interest,
          panel.background = element_blank(), axis.line = element_line(colour = "black")) +
    theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5))
 p  
+
+p + ggsave("Figure_3.jpeg") 
