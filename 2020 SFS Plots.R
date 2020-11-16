@@ -70,7 +70,7 @@ a1 <- ggplot(data=perfil, aes(x=reorder(category, responses), y=responses)) +
   scale_x_discrete(labels=c('Unemployed','State or\n provincial\n agency', 'Federal\n agency',
                             'NGO','Consulting','Academy'))
 a1
-
+a1 + ggsave("work.jpeg", width = 20, height = 20, units = "cm") 
 
 # Academy -----------------------------------------------------------------
 
@@ -102,7 +102,7 @@ a2 <- ggplot(data=perfil1, aes(x=reorder(category1, responses1), y=responses1)) 
   scale_x_discrete(labels=c('Others', 'Researcher', 'Lecture','Postdoc',
                             'Associate or\n Full Professor','Assistant\n Professor'))
 a2
-
+a2 + ggsave("academy.jpeg", width = 20, height = 20, units = "cm") 
 
 # Degree ------------------------------------------------------------------
 
@@ -128,6 +128,7 @@ p2 <- ggplot(data=degree, aes(x=reorder(degree, -number), y=number)) +
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5))
 p2  
+p2 + ggsave("degree.jpeg", width = 20, height = 20, units = "cm") 
  
 Fig1a <- (a1 + a2) / (p2 +plot_spacer())
 Fig1a + plot_annotation(tag_levels = 'A')
