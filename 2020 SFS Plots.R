@@ -23,10 +23,10 @@ p1 <- ggplot(data=perfil, aes(x=reorder(category, responses), y=responses)) +
   geom_bar(stat="identity",fill="steelblue") + 
   coord_flip() +
   
-  theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y 
-  theme(axis.title.x = element_text(size = 12, angle = 00)) + # axis x
-  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
   
   # Panel
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
@@ -57,10 +57,10 @@ a1 <- ggplot(data=perfil, aes(x=reorder(category, responses), y=responses)) +
   geom_bar(stat="identity",fill="steelblue") + 
   coord_flip() +
   
-  theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y 
-  theme(axis.title.x = element_text(size = 12, angle = 00)) + # axis x
-  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
   
   # Panel
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
@@ -89,10 +89,10 @@ a2 <- ggplot(data=perfil1, aes(x=reorder(category1, responses1), y=responses1)) 
   geom_bar(stat="identity",fill="steelblue") + 
   coord_flip() +
   
-  theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y 
-  theme(axis.title.x = element_text(size = 12, angle = 00)) + # axis x
-  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
   
   # Panel
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
@@ -118,10 +118,10 @@ p2 <- ggplot(data=degree, aes(x=reorder(degree, -number), y=number)) +
   geom_bar(stat="identity", fill="steelblue") + 
 
   
-  theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y 
-  theme(axis.title.x = element_text(size = 12, angle = 00)) + # axis x
-  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
   
   # Panel
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
