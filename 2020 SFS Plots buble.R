@@ -1,5 +1,5 @@
 
-library(reshape2 )
+
 
 category <- read.csv("category.csv")
 category
@@ -9,7 +9,7 @@ focus
 
 b <- ggplot(focus, aes(x =as.numeric(variable), y = Category)) +
   geom_point( aes(size=value), shape=21, fill="steelblue") +
-  labs(x="Option", y="Research focus", size="Value") +
+  labs(x="Option", y="Research focus", size="Percentage") +
   scale_size_area(max_size=20) +
   scale_y_discrete(limits=rev)+
   
