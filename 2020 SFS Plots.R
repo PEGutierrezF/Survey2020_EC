@@ -148,10 +148,10 @@ p3 <- ggplot(data=continually, aes(x=reorder(continually,-number), y=number)) +
   geom_bar(stat="identity",fill="steelblue") + 
   
   
-  theme(axis.title.y = element_text(size = 12, angle = 90)) + # axis y 
-  theme(axis.title.x = element_text(size = 12, angle = 00)) + # axis x
-  theme(axis.text.x=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis x
-  theme(axis.text.y=element_text(angle=0, size=10, vjust=0.5, color="black")) + #subaxis y
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
   
   # Panel
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
@@ -163,6 +163,7 @@ p3 <- ggplot(data=continually, aes(x=reorder(continually,-number), y=number)) +
                             'Not applicable\n (not yet\n graduated'))
 
 p3
+p3 + ggsave("participation.jpeg", width = 20, height = 20, units = "cm") 
 
 # Why no continually  ---------------------------------------
 
@@ -249,4 +250,38 @@ p <- ggplot(interest,
    theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5))
 p  
 
-p + ggsave("Figure_3.jpeg") 
+p + ggsave("Figure_3.jpeg")
+
+
+
+# Frequenly ---------------------------------------------------------------
+
+frequence <- c('> 75% of the year since','51-75% of the year since',
+                  '26-50% of the year since','<25% of the year since',
+                 'Only one time')
+
+number <- c(55,18,11,4,12)
+
+frequence <- data.frame(frequence, number)
+frequence
+
+frequence$frequence <- factor(frequence$frequence, levels = frequence$frequence)
+
+f <- ggplot(data=frequence, aes(x=frequence, y=number)) +
+  labs(x= "", y = "Responses (%)") +
+  geom_bar(stat="identity",fill="steelblue") + 
+  coord_flip() +
+  
+  theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
+  
+  # Panel
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black")) +
+  theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) 
+  
+
+f
+f + ggsave("frequency.jpeg", width = 20, height = 20, units = "cm")
