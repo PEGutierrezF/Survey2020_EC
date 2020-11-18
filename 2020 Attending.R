@@ -103,9 +103,10 @@ labels <- c("Attendance of others from your\n institution",
 "Time expense by visa or\n international travel",  
 "Time of year", "Availability of outside funding",
 "Registration cost", "Travel and lodging costs")
-  
+
+
 a <- ggplot(data = attending, aes(x =reorder(Item,-value), y = value, fill = variable, order= value)) +
-  labs(y="Percentage", x = "",fill="Category") +
+  labs(y="Percentage", x = "",fill="Response") +
   geom_col(width = 0.7, position = position_stack(reverse = F)) +
   # geom_bar(stat="identity", width = 0.7) +
   scale_fill_manual (values=mycolors) +
@@ -119,6 +120,8 @@ a <- ggplot(data = attending, aes(x =reorder(Item,-value), y = value, fill = var
         axis.text.x = element_text(size = rel(4), colour = "black")) + 
   theme(legend.text = element_text(size = rel(3))) + #legend size
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) +
-  theme(legend.position="bottom")
+  theme(legend.position="bottom") +
+  guides(fill = guide_legend(reverse=TRUE))
+
 a
 a + ggsave("Attending.jpeg", width = 25, height = 22, units = "cm")  
