@@ -112,5 +112,5 @@ benefits2020 <- ggplot(data = benefits20, aes(x =Item, y = value, fill = variabl
   guides(fill = guide_legend(reverse=TRUE))
 
 benefits2020
-benefits2020 + ggsave("Attending.jpeg", width = 25, height = 22, units = "cm")  
+benefits2020 + ggsave("Benefits.jpeg", width = 25, height = 22, units = "cm")  
 
