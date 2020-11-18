@@ -31,4 +31,4 @@ c1 <- ggplot(data=degree, aes(x=reorder(degree, -number), y=number, fill=as.fact
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5))
-
+c1
