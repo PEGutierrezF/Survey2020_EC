@@ -89,25 +89,40 @@ attendance_missed = likert(attendance_2020P)
 summary(attendance_missed)
 print(attendance_missed)
 
-not_attendance<- as.data.frame(attendance_missed$results)
-not_attendance<-melt(not_attendance)
+not_a<- as.data.frame(attendance_missed$results)
+not_a<-melt(not_a)
+not_a
 
 mycolors <- c( '#d0d1e6','#a6bddb','#74a9cf','#3690c0','#0570b0','#034e7b','#023858')
-labels <- c("Attendance of others from your\n institution", 
-            "Keynote speakers or other\n distinguished scientists",
-            "Meeting location convenience","Meeting location desirability",
-            "Meeting theme and science focus", "Networking opportunities",
-            "Special session topic and invitation\n to present","Time commitment",
-            "Time expense by visa or\n international travel",  
-            "Time of year", "Availability of outside funding",
-            "Registration cost", "Travel and lodging costs")
 
-not_attendance <- ggplot(data = not_attendance, aes(x =reorder(Item,-value), y = value, fill = variable, order= value)) +
+labels <- c( "Meeting location desirability",
+              "Keynote speakers or other\n distinguished scientists",
+              "Meeting theme and science focus", 
+              "Attendance of others from your\n institution",
+              "Special session topic and invitation\n to present",
+              "Networking opportunities",            
+              "Time expense by visa or\n international travel",
+              "Meeting location convenience","Time of year", 
+              "Time commitment","Registration cost",
+              "Conflict with other travel plans",
+              "Other personal or family events\n and commitments",
+              "Travel and lodging costs", "Availability of outside funding")
+
+library(dplyr)
+library(forcats)
+
+not_a1 = not_a %>% 
+  ungroup() %>%
+  arrange(fct_relevel(variable, "Extremely important"), value) %>%
+  mutate(Item = fct_inorder(Item))
+not_a1
+
+n_a <- ggplot(data = not_a1, aes(x =Item, y = value, fill = variable, order= value)) +
   labs(y="Percentage", x = "",fill="Response") +
   geom_col(width = 0.7, position = position_stack(reverse = F)) +
   # geom_bar(stat="identity", width = 0.7) +
   scale_fill_manual (values=mycolors) +
-#  scale_x_discrete(labels = labels) +
+  scale_x_discrete(labels = labels) +
   geom_text(aes(label = round(value, digits = 0)), position = position_stack(vjust = 0.5,reverse = F), 
             size = 5, colour = "gray15") +
   coord_flip() +
@@ -120,8 +135,8 @@ not_attendance <- ggplot(data = not_attendance, aes(x =reorder(Item,-value), y =
   theme(legend.position="bottom") +
   guides(fill = guide_legend(reverse=TRUE))
 
-not_attendance
-not_attendance + ggsave("not_Attendance.jpeg", width = 25, height = 22, units = "cm")  
+n_a
+n_a + ggsave("not_Attendance.jpeg", width = 25, height = 22, units = "cm")  
 
 
 

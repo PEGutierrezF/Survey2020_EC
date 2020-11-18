@@ -95,22 +95,29 @@ attending
 
 
 mycolors <- c( '#d0d1e6','#a6bddb','#74a9cf','#3690c0','#0570b0','#034e7b','#023858')
-labels <- c("Attendance of others from your\n institution", 
-  "Keynote speakers or other\n distinguished scientists",
-  "Meeting location convenience","Meeting location desirability",
-  "Meeting theme and science focus", "Networking opportunities",
-"Special session topic and invitation\n to present","Time commitment",
-"Time expense by visa or\n international travel",  
-"Time of year", "Availability of outside funding",
-"Registration cost", "Travel and lodging costs")
+labels <- c( "Meeting theme and science focus",
+"Keynote speakers or other\n distinguished scientists",
+"Attendance of others from your\n institution","Time of year",
+"Meeting location desirability","Time commitment",
+"Meeting location convenience",
+"Special session topic and invitation\n to present",
+"Time expense by visa or\n international travel",
+"Registration cost", "Networking opportunities",
+"Travel and lodging costs", "Availability of outside funding")
+
+attending1 = attending %>% 
+  ungroup() %>%
+  arrange(fct_relevel(variable, "Extremely important"), value) %>%
+  mutate(Item = fct_inorder(Item))
+attending
 
 
-a <- ggplot(data = attending, aes(x =reorder(Item,-value), y = value, fill = variable, order= value)) +
+a <- ggplot(data = attending1, aes(x =Item, y = value, fill = variable, order= value)) +
   labs(y="Percentage", x = "",fill="Response") +
   geom_col(width = 0.7, position = position_stack(reverse = F)) +
   # geom_bar(stat="identity", width = 0.7) +
   scale_fill_manual (values=mycolors) +
-  scale_x_discrete(labels = labels) +
+   scale_x_discrete(labels = labels) +
   geom_text(aes(label = round(value, digits = 0)), position = position_stack(vjust = 0.5,reverse = F), 
             size = 5, colour = "gray15") +
   coord_flip() +
