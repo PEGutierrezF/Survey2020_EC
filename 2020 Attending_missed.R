@@ -117,6 +117,7 @@ not_a1 = not_a %>%
   mutate(Item = fct_inorder(Item))
 not_a1
 
+
 n_a <- ggplot(data = not_a1, aes(x =Item, y = value, fill = variable, order= value)) +
   labs(y="Percentage", x = "",fill="Response") +
   geom_col(width = 0.7, position = position_stack(reverse = F)) +
