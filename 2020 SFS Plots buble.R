@@ -13,7 +13,7 @@ head(activity)
 activity1 = activity %>% 
   ungroup() %>%
   arrange(variable, value) %>%
-  mutate(Category  = fct_inorder(Category ) )
+  mutate(Category = fct_inorder(Category ) )
 
 labels <- c("Applied for SFS awards (e.g., Hynes)",
             "Others", "Accessed SFS's online ECC resources 
@@ -68,7 +68,7 @@ head(Socactivity)
 Socactivity1 = Socactivity %>% 
   ungroup() %>%
   arrange(variable, value) %>%
-  mutate(Activity  = fct_inorder(Activity ) )
+  mutate(Activity = fct_inorder(Activity ) )
 
 labels <- c("Assisted fundraising efforts","Others","Served on a conference planning committee",
   "Served as a mentor (e.g., with the Instars program)",
