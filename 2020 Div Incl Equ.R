@@ -3,6 +3,32 @@
 
 
 
+# Changes in Diverity -----------------------------------------------------
+
+response<- c('Increased in diversity','No change',"Don't know / Unsure")
+number <- c(36,21,43)
+
+diversity<- data.frame(response, number)
+
+d <- ggplot(data=diversity, aes(x=response, y=number)) +
+  labs(x= "Responses", y = "% of respondents") +
+  geom_bar(stat="identity", fill="steelblue") + 
+  
+    theme(axis.title.y = element_text(size = 14, angle = 90)) + # axis y 
+  theme(axis.title.x = element_text(size = 14, angle = 00)) + # axis x
+  theme(axis.text.x=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis x
+  theme(axis.text.y=element_text(angle=0, size=12, vjust=0.5, color="black")) + #subaxis y
+  
+  # Panel
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black")) +
+  theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5))
+d  
+d + ggsave("diversity.jpeg", width = 20, height = 20, units = "cm")
+
+
+
+
 #######################
 ####### thoughts on diversity equity and inclusion 2020 ########
 #######################
