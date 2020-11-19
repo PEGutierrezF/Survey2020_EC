@@ -81,10 +81,7 @@ labels <- c("Assisted fundraising efforts","Others","Served on a conference plan
   desk, moderator, judge, etc.)", "Attended the Early Career mixer at a conference", 
   "Gave a poster at a conference",
   "Gave a talk at a conference",
-  "Attended a conference"
-  
-  
-)
+  "Attended a conference")
 
 
 b <- ggplot(Socactivity1, aes(x =variable, y = Activity)) +
