@@ -42,7 +42,7 @@ p1
 # Optional ----------------------------------------------------------------
 
 
-category <- c('Academy', 'Consulting', 'State or provincial agency', 'Federal agency',
+category <- c('Academia', 'Consulting', 'State or provincial agency', 'Federal agency',
               'NGO','Unemployed')
 
 responses <- c(73,8.6,6.1,6.1,6.1,1.2)
@@ -68,14 +68,14 @@ a1 <- ggplot(data=perfil, aes(x=reorder(category, responses), y=responses)) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) +
   
   scale_x_discrete(labels=c('Unemployed','State or\n provincial\n agency', 'Federal\n agency',
-                            'NGO','Consulting','Academy'))
+                            'NGO','Consulting','Academia'))
 a1
 a1 + ggsave("work.jpeg", width = 20, height = 20, units = "cm") 
 
 # Academy -----------------------------------------------------------------
 
 category1 <- c('Assistant Professor','Associate or Full Professor',
-              'Postdoc ', 'Lecure', 'Research', 'Others')
+              'Postdoc ', 'Lecurer', 'Research', 'Others')
 
 responses1 <- c(36.6,25,20,6.6,6.6,5)
 
@@ -99,7 +99,7 @@ a2 <- ggplot(data=perfil1, aes(x=reorder(category1, responses1), y=responses1)) 
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) +
   
-  scale_x_discrete(labels=c('Others', 'Researcher', 'Lecture','Postdoc',
+  scale_x_discrete(labels=c('Others', 'Researcher', 'Lecturer','Postdoc',
                             'Associate or\n Full Professor','Assistant\n Professor'))
 a2
 a2 + ggsave("academy.jpeg", width = 20, height = 20, units = "cm") 
@@ -114,7 +114,7 @@ degree
 
 
 p2 <- ggplot(data=degree, aes(x=reorder(degree, -number), y=number)) +
-  labs(x= "Degree", y = "% of respondents") +
+  labs(x= "Highest level of education", y = "% of respondents") +
   geom_bar(stat="identity", fill="steelblue") + 
 
   
@@ -144,7 +144,7 @@ continually <- data.frame(continually, number)
 continually
 
 p3 <- ggplot(data=continually, aes(x=reorder(continually,-number), y=number)) +
-  labs(x= "Attending continually", y = "% of respondents") +
+  labs(x= "Continuously member of SFS", y = "% of respondents") +
   geom_bar(stat="identity",fill="steelblue") + 
   
   
@@ -198,6 +198,7 @@ p4 <- ggplot(data=continually, aes(x=reorder(continually, number), y=number)) +
                             'Did not have funds for\n membership fee'))
 
 p4
+p4 + ggsave("notMembershipRenew.jpeg", width = 20, height = 20, units = "cm") 
 
 Fig2 <- p3 + p4
 Fig2 + plot_annotation(tag_levels = 'A')
@@ -256,8 +257,8 @@ p + ggsave("Figure_3.jpeg")
 
 # Frequenly ---------------------------------------------------------------
 
-frequence <- c('> 75% of the year since','51-75% of the year since',
-                  '26-50% of the year since','<25% of the year since',
+frequence <- c('> 75% of the years since','51-75% of the years since',
+                  '26-50% of the years since','<25% of the years since',
                  'Only one time')
 
 number <- c(55,18,11,4,12)

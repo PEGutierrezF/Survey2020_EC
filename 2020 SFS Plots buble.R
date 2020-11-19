@@ -19,10 +19,10 @@ focus1 = focus %>%
   arrange(variable, value) %>%
   mutate(Category  = fct_inorder(Category ) )
 
-labels <- c("Algae", "Anthropogenic materials (litter plastics, 
+labels <- c("Algae", "Anthropogenic materials (litter, plastics, 
             nanoparticles, pharmaceuticals",
-            "Biology and biologu education 
-            research", "Managment", "Pollution","Fish", "Climate changes",
+            "Biology and biology education 
+            research", "Management", "Pollution","Fish", "Climate change",
             "Lakes", "Conservation", "Food webs", "Nutrients",
             "Biogeochemistry", "Community ecology",
             "Invertebrates", "Streams/Rivers")
