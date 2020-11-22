@@ -73,9 +73,6 @@ labels <- c("Curating web resources",
             "Providing conference travel grants",
             "Providing networking opportunities")
 
-library(dplyr)
-library(forcats)
-
 priority = pr %>% 
   ungroup() %>%
   arrange(fct_relevel(variable, "7"), value) %>%
