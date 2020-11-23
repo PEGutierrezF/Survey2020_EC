@@ -81,7 +81,7 @@ priority
 
 
 
-pt <- ggplot(data = priority, aes(x =Item, y = value, fill = variable, order= value)) +
+pt <- ggplot(data = priority, aes(x =Item, y = value, fill = variable)) +
   labs(y="Percentage", x = "",fill="Response") +
   geom_col(width = 0.7, position = position_stack(reverse = F)) +
   # geom_bar(stat="identity", width = 0.7) +
