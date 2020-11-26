@@ -3,7 +3,7 @@
 
 
 # Activity ----------------------------------------------------------------
-a <- read.csv("ECactivities.csv")
+a <- read.csv("activities_in_EC.csv")
 a
 
 
@@ -53,10 +53,9 @@ a + ggsave("ECactivity.jpeg", width = 25, height = 22, units = "cm")
 
 
 
-# Society Activityes ------------------------------------------------------
+# Society Activities ------------------------------------------------------
 
 
-# Activity ----------------------------------------------------------------
 b<- read.csv("Societyactivities.csv")
 b
 
@@ -115,18 +114,12 @@ b + ggsave("Socactivity.jpeg", width = 25, height = 22, units = "cm")
 
 # Research topic ----------------------------------------------------------
 
-category <- read.csv("category1.csv")
+category <- read.csv("focus_by_category.csv")
 category
-
 
 focus<-melt(category)
 head(focus)
 
-not_a1 = focus %>% 
-  ungroup() %>%
-  arrange(fct_relevel(variable, "Extremely important"), value) %>%
-  mutate(Item = fct_inorder(Item))
-not_a1
 
 focus1 = focus %>% 
   ungroup() %>%
