@@ -56,9 +56,8 @@ a + ggsave("ECactivity.jpeg", width = 25, height = 22, units = "cm")
 # Society Activities ------------------------------------------------------
 
 
-b<- read.csv("Societyactivities.csv")
+b<- read.csv("activities_in_Soc.csv")
 b
-
 
 Socactivity<-melt(b)
 Socactivity
