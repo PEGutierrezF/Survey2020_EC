@@ -13,7 +13,8 @@ head(activity)
 activity1 = activity %>% 
   ungroup() %>%
   arrange(variable, value) %>%
-  mutate(Category = fct_inorder(Category ) )
+  mutate(Activity = fct_inorder(Activity) )
+activity1
 
 labels <- c("Applied for SFS awards (e.g., Hynes)",
             "Others", "Accessed SFS's online ECC resources 
