@@ -1,12 +1,5 @@
 
 
-library('ggplot2')
-library('patchwork')
-library(dplyr)
-library("RColorBrewer")
-library(reshape2)
-
-
 category <- c('Assistant Professor','Associate or Full Professor',
             'Postdoc ', 'Consulting', 'State or provincial agency', 'Federal agency',
             'NGO','Others')
