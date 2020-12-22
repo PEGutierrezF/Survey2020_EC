@@ -58,7 +58,7 @@ mycolors <- c( '#d0d1e6','#a6bddb','#74a9cf','#3690c0','#0570b0','#034e7b','#023
 labels <- c("Hosting SFS annual meetings at\n international locations",
             "Creating initiatives to offset the carbon footprint\n incurred from international travel",
             "Providing travel awards for attendees\n traveling internationally",
-            "Proving alternative ways of attending\n annual meetings virtually",
+            "Providing alternative ways of attending\n annual meetings virtually",
             "Providing more webinars and online activities\n throughout the year that can be attended\n remotely")
 
 Global_Society = Global_Soc %>% 
