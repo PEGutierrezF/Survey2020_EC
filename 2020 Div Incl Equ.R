@@ -9,6 +9,7 @@ response<- c('Increased in diversity','No change',"Don't know / Unsure")
 number <- c(36,21,43)
 
 diversity<- data.frame(response, number)
+diversity
 
 d <- ggplot(data=diversity, aes(x=response, y=number)) +
   labs(x= "Responses", y = "% of respondents") +
