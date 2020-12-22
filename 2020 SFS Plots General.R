@@ -160,7 +160,7 @@ p3 <- ggplot(data=continually, aes(x=reorder(continually,-number), y=number)) +
   
   scale_x_discrete(labels=c('Yes',
                             'No',
-                            'Not applicable\n (not yet\n graduated'))
+                            'Not applicable\n (not yet\n graduated)'))
 
 p3
 p3 + ggsave("participation.jpeg", width = 20, height = 20, units = "cm") 
@@ -193,8 +193,8 @@ p4 <- ggplot(data=continually, aes(x=reorder(continually, number), y=number)) +
         panel.background = element_blank(), axis.line = element_line(colour = "black")) +
   theme(panel.border = element_rect(colour = "black", fill=NA, size=0.5)) +
   
-  scale_x_discrete(labels=c('Other reasons',
-                            'Did not plan to attend\n the annual meeting',
+  scale_x_discrete(labels=c('Did not plan to attend\n the annual meeting',
+                            'Other reasons',
                             'Did not have funds for\n membership fee'))
 
 p4
