@@ -128,7 +128,7 @@ Fig1a + plot_annotation(tag_levels = 'A')
 Fig1a + ggsave("Figure_1a.jpeg", width = 20, height = 20, units = "cm") 
 
 
-# Continually attending SFS meetings ---------------------------------------
+# Continually membership SFS  ---------------------------------------
 
 continually <- c('Yes','Not','Not applicable (not yet graduated)')
 number <- c(51,29,20)
@@ -248,7 +248,7 @@ p + ggsave("Figure_3.jpeg")
 
 
 
-# Frequenly ---------------------------------------------------------------
+# Frequenly attend to SFS meetings ---------------------------------------------------------------
 
 frequence <- c('> 75% of the years since','51-75% of the years since',
                   '26-50% of the years since','<25% of the years since',
