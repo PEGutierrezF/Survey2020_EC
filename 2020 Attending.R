@@ -131,4 +131,4 @@ a <- ggplot(data = attending1, aes(x =Item, y = value, fill = variable, order= v
   guides(fill = guide_legend(reverse=TRUE))
 
 a
-a + ggsave("Attending.jpeg", width = 25, height = 22, units = "cm")  
+a + ggsave("Fig 6. Attending.jpeg", width = 25, height = 22, units = "cm")  
